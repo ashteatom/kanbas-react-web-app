@@ -55,9 +55,113 @@ tag to tell browsers to render the gaps.
         </ol>
         My favorite recipe:
         <ol id="wd-your-favorite-recipe">
-            
+            <li>Wash all filling ingredients.</li>
+            <li>Mince poultry.</li>
+            <li>Mince vegtables.</li>
+            <li>Mix filling ingredients together.</li>
+            <li>Scoop filling into wrapper.</li>
+            <li>Fold and freeze.</li>
+            <li>Boil and serve as needed.</li>
         </ol>
+        <h5>Unordered List Tag</h5>
+        My favorite books (in no particular order)
+        <ul id="wd-my-books">
+        <li>Dune</li>
+        <li>Lord of the Rings</li>
+        <li>Ender's Game</li>
+        <li>Red Mars</li>
+        <li>The Forever War</li>
+        </ul>
+        Your favorite books (in no particular order)
+        <ul id="wd-your-books">
+        <li>Ready Player One</li>
+        <li>Omniscient Reader's Viewpoint</li>
+        <li>Lout of the Count's Family</li>
+        </ul>
+
         </div>
+        <div id="wd-tables">
+        <h4>Table Tag</h4>
+        <table border={1} width="100%">
+          <thead>
+            <tr>
+              <th>Quiz</th>
+              <th>Topic</th>
+              <th>Date</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q1</td>
+              <td>HTML</td>
+              <td>2/3/21</td>
+              <td>85</td>
+            </tr>
+            <tr>
+              <td>Q2</td>
+              <td>CSS</td>
+              <td>2/10/21</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>Q3</td>
+              <td>JavaScript</td>
+              <td>2/17/21</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>Q4</td>
+              <td>Git</td>
+              <td>2/24/21</td>
+              <td>67</td>
+            </tr>
+            <tr>
+              <td>Q5</td>
+              <td>Matlab</td>
+              <td>3/3/21</td>
+              <td>97</td>
+            </tr>
+            <tr>
+              <td>Q6</td>
+              <td>Julia</td>
+              <td>3/10/21</td>
+              <td>75</td>
+            </tr>
+            <tr>
+              <td>Q7</td>
+              <td>Python</td>
+              <td>3/17/21</td>
+              <td>41</td>
+            </tr>
+            <tr>
+              <td>Q8</td>
+              <td>Java</td>
+              <td>3/24/21</td>
+              <td>82</td>
+            </tr>
+            <tr>
+              <td>Q9</td>
+              <td>C++</td>
+              <td>3/31/21</td>
+              <td>99</td>
+            </tr>
+            <tr>
+              <td>Q10</td>
+              <td>OCaml</td>
+              <td>4/7/21</td>
+              <td>59</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={3}>Average</td>
+              <td>79</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
 
 
     </div>
