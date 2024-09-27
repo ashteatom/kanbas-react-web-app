@@ -274,8 +274,19 @@ tag to tell browsers to render the gaps.
 
 
 
-    
+
         </div>
+        <h4>Anchor tag</h4>
+        Please
+        <a id="wd-lipsum" href="https://www.lipsum.com">click here</a>
+        to get dummy text<br/>
+        Please
+        <a id="wd-github" href="https://github.com/ashteatom/kanbas-react-web-app/tree/a1">click here</a>
+        to get a1 github repo<br/>
+
+
+
+
         
 
 
