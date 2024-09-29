@@ -20,7 +20,7 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/1234/Home">
+                to="/Kanbas/Courses/6130/Home">
             <img src="/images/brain.jpg" width={200} />
             <div>
               <h5>CS6130 Affective Computing</h5>
@@ -33,7 +33,7 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/1234/Home">
+                to="/Kanbas/Courses/5010/Home">
             <img src="/images/java.jpg" width={200} />
             <div>
               <h5>CS5010 PDP</h5>
@@ -46,7 +46,7 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/1234/Home">
+                to="/Kanbas/Courses/5520/Home">
             <img src="/images/mobile_apps.jpg" width={200} />
             <div>
               <h5>CS5520 Mobile Application Development</h5>
@@ -59,7 +59,7 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/1234/Home">
+                to="/Kanbas/Courses/6750/Home">
             <img src="/images/lock.jpg" width={200} />
             <div>
               <h5>CS6750 Privacy, Security, Usability</h5>
@@ -72,7 +72,7 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/1234/Home">
+                to="/Kanbas/Courses/5330/Home">
             <img src="/images/computer_vision.jpg" width={200} />
             <div>
               <h5>CS5330 Pattern Recognition and Computer Vision</h5>
@@ -85,7 +85,7 @@ export default function Dashboard() {
         </div>
         <div className="wd-dashboard-course">
           <Link className="wd-dashboard-course-link"
-                to="/Kanbas/Courses/1234/Home">
+                to="/Kanbas/Courses/6200/Home">
             <img src="/images/mail_icon.png" width={200} />
             <div>
               <h5>CS6200 Information Retrieval</h5>
