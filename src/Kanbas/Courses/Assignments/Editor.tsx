@@ -12,11 +12,11 @@ export default function AssignmentEditor() {
           
           The landing page should include the following: 
           - Your full name and section 
-          - Links to each of the lab assignments
-          - Link to the Kanbas application
+          - Links to each of the lab assignments 
+          - Link to the Kanbas application 
           - Links to all relevant source code repositories 
           
-          The Kanbas application should include a link to navigate back to the 
+          The Kanbas application should include a link to navigate back to the
           landing page.
         </textarea>
         
@@ -54,7 +54,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-submission-type" className = "float-end mt-2">Submission Type</label>
             </div>
             <div className = "col">
-              <span className="form-control mb-2">
+              <div className="form-control mb-2">
               
               
                 <select id="wd-submission-type" className="form-select mb-2 mt-2"> <option>Online</option></select>
@@ -87,7 +87,7 @@ export default function AssignmentEditor() {
                   <label htmlFor="wd-file-upload" className="form-check-label">File Uploads</label>
                 
                 
-              </span>
+              </div>
             </div>
           </div>
 
@@ -96,7 +96,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-assign-to" className = "float-end me-2 mt-2">Assign</label>
             </div>
             <div className = "col">
-              <span className="form-control mb-2">
+              <div className="form-control mb-2">
                 <div className = "row">
                   <label htmlFor="wd-assign-to" className = "me-2 mt-2"><b>Assign to</b></label>
                 </div>
@@ -121,19 +121,15 @@ export default function AssignmentEditor() {
                     </div>
                   </div>
                 </div>
-              </span>
+              </div>
           
             </div>
           </div>
 
-          
+          <hr></hr>
             <div className= "wd-float-right">
               <button className="btn btn-lg btn-secondary me-1">Cancel</button>
               <button className="btn btn-lg btn-danger me-1">Save</button>
-           
-
-
-            
           </div> 
 
           
@@ -143,15 +139,6 @@ export default function AssignmentEditor() {
 
         </div>
         
-        {/* 
-        
-       
-
-        <div className = "col">
-        </div>
-
-
-      </table> */}
     </div>
 );}
 
