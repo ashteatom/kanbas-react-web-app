@@ -38,7 +38,7 @@ export default function Assignments() {
         <IoIosArrowDown className="me-2 fs-3"/>
           ASSIGNMENTS
           <AssignmentControlButtons />
-          <div className = "container form-control w-25 wd-rounded-corners-all-around bg-secondary border-gray float-end" >
+          <div className = "container form-control w-25 wd-rounded-corners-all-around bg-secondary border-gray float-right" >
             40% of Total
           </div>
 
