@@ -12,8 +12,8 @@ import * as db from "../../Database";
 import ProtectedContent from "../../Account/ProtectedContent";
 
 export default function Assignments(
-  { assignmentName, setAssignmentName, addAssignment }:
-  { assignmentName: string; setAssignmentName: (title: string) => void; addAssignment: () => void; }
+ /*  { assignmentName, setAssignmentName, addAssignment }:
+  { assignmentName: string; setAssignmentName: (title: string) => void; addAssignment: () => void; } */
 ) {
   const { cid } = useParams();
   const assign = db.assignments;
