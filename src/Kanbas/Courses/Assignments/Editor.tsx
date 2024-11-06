@@ -1,10 +1,11 @@
 import { useParams } from "react-router";
 import * as db from "../../Database";
+import React, { useState } from "react";
 
 export default function AssignmentEditor() {
   const { aid } = useParams();
   const assign = db.assignments;
-
+ 
 
 
     return (
@@ -138,12 +139,13 @@ export default function AssignmentEditor() {
 
             <a className="btn btn-lg btn-secondary me-1 "
               href={`#/Kanbas/Courses/${assign.course}/Assignments`}>
-                <button className="btn btn-lg btn-secondary me-1">Cancel</button>
+                <button className="btn btn-secondary me-1">Cancel</button>
            </a>
 
            <a className="btn btn-lg btn-danger me-1"
               href={`#/Kanbas/Courses/${assign.course}/Assignments`}>
-                <button className="btn btn-lg btn-danger me-1">Save</button>
+                <button className="btn btn-danger me-1" id="wd-update-course-click">
+                  Save</button>
           </a>
 
           </div> 
