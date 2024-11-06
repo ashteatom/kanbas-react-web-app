@@ -66,11 +66,11 @@ export default function Assignments(
         <li className="wd-assignment-list-item list-group-item p-3 ps-1">
           <BsGripVertical className="me-2 fs-3" />
           <PiNotebookBold className="text-success me-2 fs-3"/>
-          {ProtectedContent() &&
-          (<a className="wd-assignment-link text-dark text-decoration-none"
+          
+          <a className="wd-assignment-link text-dark text-decoration-none"
               href={`#/Kanbas/Courses/${assign.course}/Assignments/${assign._id}`}>
                 <b>{assign.title}</b>
-          </a>)}
+          </a>
           <LessonControlButtons />
              <div className ="me-2 fs-6 ps-5 ms-4">
              <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> {assign.start} |  
@@ -85,24 +85,12 @@ export default function Assignments(
     </li>
     
   </ul>
-  <AssignmentCreate dialogTitle="Add Assignment" assignmentName={assignmentName}
-                    setAssignmentName={setAssignmentName} addAssignment={addAssignment} />
+  {/* <AssignmentCreate dialogTitle="Add Assignment" assignmentName={assignmentName}
+                    setAssignmentName={setAssignmentName} addAssignment={addAssignment} /> */}
 
       
         
       </div>
   );}
   
-  /* {assign
-    .filter((assign: any) => assign.course === cid)
-    .map((assign: any) => (
-
-    <a 
-        href={`#/Kanbas/Courses/${assign.course}/Assignments/${assign._id}`}>
-          <button id="wd-add-assignment-group" className="btn btn-lg btn-danger me-1">
-          <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-          Assignment
-          </button>
-    </a>
-    ))}
- */
+  
