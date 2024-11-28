@@ -19,8 +19,8 @@ export default function Dashboard({
   deleteCourse: (course: any) => void;
   updateCourse: () => void; 
 }) {
-
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+
 
   return (
     <div id="wd-dashboard">
