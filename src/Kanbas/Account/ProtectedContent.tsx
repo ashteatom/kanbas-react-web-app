@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
 
-export default function ProtectedContent() {
+export default function ProtectedContent({ children }: { children: React.ReactNode }) {
   const { currentUser } = useSelector((state: any) => state.accountReducer)
-  let isFaculty : boolean = false;
+  const isFaculty = currentUser.role === "FACULTY";
   
-  if (currentUser.role === "FACULTY") { 
-    isFaculty = true;
+  if (isFaculty) { 
+    return <>{children}</>;
   } 
-  return isFaculty;
+  else {
+    return null;
+  }
   
 }

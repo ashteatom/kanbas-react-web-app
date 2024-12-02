@@ -1,5 +1,5 @@
 import AssignmentCreate from "./AssignmentCreate";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { BsGripVertical } from "react-icons/bs";
@@ -8,15 +8,35 @@ import AssignmentControlButtons from "./AssignmentControlButtons"
 import LessonControlButtons from "./LessonControlButtons";
 import { PiNotebookBold } from "react-icons/pi";
 import { useParams } from "react-router";
-import * as db from "../../Database";
+//import * as db from "../../Database";
 import ProtectedContent from "../../Account/ProtectedContent";
+import { useDispatch, useSelector } from "react-redux";
+import * as coursesClient from "../client";
+import * as assignmentsClient from "./client";
+import { deleteAssignment, setAssignments } from "./reducer";
+import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 
-export default function Assignments(
- /*  { assignmentName, setAssignmentName, addAssignment }:
-  { assignmentName: string; setAssignmentName: (title: string) => void; addAssignment: () => void; } */
-) {
+export default function Assignments() {
   const { cid } = useParams();
-  const assign = db.assignments;
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
+
+  const removeAssignment = async (assignmentId: string) => {
+    await assignmentsClient.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
+  const fetchAssignments = async () => {
+    const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+
+
   
     return (
       <div id="wd-assignments" className = "text-nowrap">
@@ -25,19 +45,19 @@ export default function Assignments(
         <input id="wd-search-assignment"
             placeholder="Search..." className = "me-2"/>
 
-        {ProtectedContent() &&
-        (<button id="wd-add-assignment-group" className="btn btn-lg btn-secondary me-1">
+        <ProtectedContent>
+        <button id="wd-add-assignment-group" className="btn btn-lg btn-secondary me-1">
         <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
           Group
-        </button> )}
-
-        {ProtectedContent() &&
-        (<button 
-        data-bs-toggle="modal" data-bs-target="#wd-add-module-dialog" 
-        id="wd-add-assignment-group" className="btn btn-lg btn-danger me-1">
+        </button> 
+        
+        < Link id="wd-add-assignment-group" className="btn btn-lg btn-danger me-1"
+        to={`/Kanbas/Courses/${cid}/Assignments/New`} > 
         <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
           Assignment
-        </button> )}
+          </Link>
+        </ProtectedContent>
+        
 
       
       <ul id="wd-assignments" className="list-group rounded-0">
@@ -57,9 +77,9 @@ export default function Assignments(
        
       </div>
       
-      {assign
-          .filter((assign: any) => assign.course === cid)
-          .map((assign: any) => (
+      {assignments
+        .filter((assign: any) => assign.course === cid)
+        .map((assign: any) => (
 
 
       <ul className="wd-lesson list-group rounded-0">
@@ -71,7 +91,14 @@ export default function Assignments(
               href={`#/Kanbas/Courses/${assign.course}/Assignments/${assign._id}`}>
                 <b>{assign.title}</b>
           </a>
+          
           <LessonControlButtons />
+          <ProtectedContent>
+          <FaTrash className="text-danger float-end"
+                  onClick={() => removeAssignment(assign._id)}
+                />
+          </ProtectedContent>
+
              <div className ="me-2 fs-6 ps-5 ms-4">
              <span className="text-danger">Multiple Modules</span> | <b>Not available until</b> {assign.start} |  
               </div>
@@ -85,12 +112,8 @@ export default function Assignments(
     </li>
     
   </ul>
-  {/* <AssignmentCreate dialogTitle="Add Assignment" assignmentName={assignmentName}
-                    setAssignmentName={setAssignmentName} addAssignment={addAssignment} /> */}
 
-      
-        
+
       </div>
   );}
-  
   

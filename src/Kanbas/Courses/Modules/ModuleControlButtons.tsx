@@ -10,16 +10,17 @@ export default function ModuleControlButtons(
 ) {
   return (
     <div className="float-end">
-      {ProtectedContent() &&
-      (<FaPencil onClick={() => editModule(moduleId)} className="text-primary me-3" />)}
-      {ProtectedContent() &&
-      (<FaTrash className="text-danger me-2 mb-1" onClick={() => deleteModule(moduleId)}/>)}
-      {ProtectedContent() &&
-      (<GreenCheckmark />)}
-      {ProtectedContent() &&
-      (<BsPlus className = "fs-4" />)}
-      {ProtectedContent() &&
-      (<IoEllipsisVertical className="fs-4" />)}
+      <ProtectedContent>
+      <FaPencil onClick={() => editModule(moduleId)} className="text-primary me-3" />
+      
+      <FaTrash className="text-danger me-2 mb-1" onClick={() => deleteModule(moduleId)}/>
+      
+      <GreenCheckmark />
+      
+      <BsPlus className = "fs-4" />
+      
+      <IoEllipsisVertical className="fs-4" />
+      </ProtectedContent>
       
       
       

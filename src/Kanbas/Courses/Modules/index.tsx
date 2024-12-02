@@ -9,6 +9,7 @@ import {  setModules, addModule, editModule, updateModule, deleteModule }
   from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 import * as coursesClient from "../client";
+import * as modulesClient from "./client";
 
 
 export default function Modules() {
@@ -17,6 +18,16 @@ export default function Modules() {
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
   const dispatch = useDispatch();
+
+  const saveModule = async (module: any) => {
+    await modulesClient.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
+  const removeModule = async (moduleId: string) => {
+    await modulesClient.deleteModule(moduleId);
+    dispatch(deleteModule(moduleId));
+  };
 
   const createModuleForCourse = async () => {
     if (!cid) return;
@@ -27,13 +38,12 @@ export default function Modules() {
 
 
   const fetchModules = async () => {
-  const modules = await coursesClient.findModulesForCourse(cid as string);
+    const modules = await coursesClient.findModulesForCourse(cid as string);
     dispatch(setModules(modules));
   };
   useEffect(() => {
     fetchModules();
   }, []);
-
 
 
 
@@ -60,8 +70,7 @@ export default function Modules() {
                 )}
                onKeyDown={(e) => {
                  if (e.key === "Enter") {
-                  dispatch(
-                   updateModule({ ...module, editing: false }));
+                  saveModule({ ...module, editing: false });
                  }
                }}
                defaultValue={module.name}/>
@@ -69,10 +78,10 @@ export default function Modules() {
 
         <ModuleControlButtons 
           moduleId={module._id} 
-          deleteModule={(moduleId) => {
-            dispatch(deleteModule(moduleId));
-          }}
-          editModule={(moduleId) => dispatch(editModule(moduleId))} />
+          deleteModule={(moduleId) => 
+            removeModule(moduleId)}
+          editModule={(moduleId) => 
+            dispatch(editModule(moduleId))} />
       </div>
       {module.lessons && (
 

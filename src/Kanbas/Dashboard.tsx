@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 import ProtectedContent from "./Account/ProtectedContent";
 
 export default function Dashboard({ 
@@ -25,8 +24,8 @@ export default function Dashboard({
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
-      {ProtectedContent() &&
-          (
+      <ProtectedContent>
+          
       <h5>New Course
       <button className="btn btn-primary float-end"
                   id="wd-add-new-course-click"
@@ -37,14 +36,19 @@ export default function Dashboard({
                   Update
         </button>
 
-      </h5>)} <br />
-      {ProtectedContent() &&
-      (<input value={course.name} className="form-control mb-2" 
-                   onChange={(e) => setCourse({ ...course, name: e.target.value }) } />)}
+      </h5>
+      </ProtectedContent>
+       <br />
 
-      {ProtectedContent() &&
-        (<textarea value={course.description} className="form-control"
-                   onChange={(e) => setCourse({ ...course, description: e.target.value }) } />)}
+      <ProtectedContent>
+      <input value={course.name} className="form-control mb-2" 
+                   onChange={(e) => setCourse({ ...course, name: e.target.value }) } />
+      </ProtectedContent>
+
+      <ProtectedContent>
+        <textarea value={course.description} className="form-control"
+                   onChange={(e) => setCourse({ ...course, description: e.target.value }) } />
+      </ProtectedContent>
 
       <hr />
 
@@ -65,23 +69,25 @@ export default function Dashboard({
                     <button className="btn btn-primary"> Go </button>
                     
                   
-                    {ProtectedContent() &&
-                    (<button onClick={(event) => {
+                    <ProtectedContent>
+                    <button onClick={(event) => {
                       event.preventDefault();
                       deleteCourse(course._id);
                     }} className="btn btn-danger float-end"
                     id="wd-delete-course-click">
                     Delete
-                    </button>)}
+                    </button>
+                    </ProtectedContent>
                    
-                    {ProtectedContent() &&
-                    (<button id="wd-edit-course-click"
+                    <ProtectedContent>
+                    <button id="wd-edit-course-click"
                       onClick={(event) => {
                         event.preventDefault();
                         setCourse(course);
                     }} className="btn btn-warning me-2 float-end" >
                     Edit
-                    </button>)}
+                    </button>
+                    </ProtectedContent>
 
 
 

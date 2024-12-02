@@ -16,42 +16,47 @@ export default function CourseStatus() {
         
         <div className="w-50 pe-1">
 
-        {ProtectedContent() &&
-          (<button className="btn btn-lg btn-secondary w-100 text-nowrap ">
-            <MdDoNotDisturbAlt className="me-2 fs-5" /> Unpublish </button>)}
+        <ProtectedContent>
+          <button className="btn btn-lg btn-secondary w-100 text-nowrap ">
+            <MdDoNotDisturbAlt className="me-2 fs-5" /> Unpublish </button>
+        </ProtectedContent>
         </div>
 
         <div className="w-50">
 
-        {ProtectedContent() &&
-          (<button className="btn btn-lg btn-success w-100">
-            <FaCheckCircle className="me-2 fs-5" /> Publish </button>)}
+        <ProtectedContent>
+          <button className="btn btn-lg btn-success w-100">
+            <FaCheckCircle className="me-2 fs-5" /> Publish </button>
+        </ProtectedContent>
         </div>
 
       </div><br />
       
-      {ProtectedContent() &&
-      (<button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <BiImport className="me-2 fs-5" /> Import Existing Content </button>)}
+      <ProtectedContent>
+      <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
+        <BiImport className="me-2 fs-5" /> Import Existing Content </button>
         
-      {ProtectedContent() &&
-      (<button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <LiaFileImportSolid className="me-2 fs-5" /> Import from Commons </button>)}
+      
+      <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
+        <LiaFileImportSolid className="me-2 fs-5" /> Import from Commons </button>
 
-      {ProtectedContent() &&
-      (<button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <IoMdHome className="me-2 fs-5" /> Choose Home Page </button>)}
+      
+      <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
+        <IoMdHome className="me-2 fs-5" /> Choose Home Page </button>
+      </ProtectedContent>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
         <MdOutlineBarChart className="me-2 fs-5" /> View Course Stream </button>
 
-      {ProtectedContent() &&
-      (<button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <TfiAnnouncement className="me-2 fs-5" /> New Announcement </button>)}
+      <ProtectedContent>
+      <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
+        <TfiAnnouncement className="me-2 fs-5" /> New Announcement </button>
 
-      {ProtectedContent() &&
-      (<button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
-        <MdOutlineBarChart className="me-2 fs-5" /> New Analytics </button>)}
+      
+      <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
+        <MdOutlineBarChart className="me-2 fs-5" /> New Analytics </button>
+
+      </ProtectedContent>
 
       <button className="btn btn-lg btn-secondary w-100 mt-1 text-start">
         <FaBell className="me-2 fs-5" /> View Course Notifications </button>
