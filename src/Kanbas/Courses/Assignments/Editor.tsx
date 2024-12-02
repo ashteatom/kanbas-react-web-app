@@ -188,7 +188,7 @@ export default function AssignmentEditor() {
                   <label htmlFor="wd-due-date" className = "me-2 mt-2"> <b>Due</b> </label>
                 </div>
                 <input type="date" id="wd-available-from" className="form-control" value= {assignment.due}
-                onChange={(e) => adjustAssignment({...assignment, due: e.target.value })}
+                onChange={(e) => adjustAssignment({...assignment, due: e.target.value, end: dateConverter(e.target.value) + " at 11:59pm", })}
                 />
 
                 <div className = "row">
@@ -204,7 +204,7 @@ export default function AssignmentEditor() {
                   <label htmlFor="wd-available-to" className = "me-2 mt-2"> <b>Until</b> </label>
                     <div className ="row">
                     <input type="date" id="wd-available-to" className="form-control" value={assignment.until}
-                    onChange={(e) => adjustAssignment({...assignment, until: e.target.value, due: e.target.value, end: dateConverter(e.target.value) + " at 11:59pm", })}
+                    onChange={(e) => adjustAssignment({...assignment, until: e.target.value, })}
                     />
                     </div>
                   </div>
