@@ -31,10 +31,10 @@ export default function Assignments() {
     const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
     dispatch(setAssignments(assignments));
   };
+  
   useEffect(() => {
     fetchAssignments();
   }, []);
-
 
 
   
@@ -95,7 +95,7 @@ export default function Assignments() {
           <LessonControlButtons />
           <ProtectedContent>
           <FaTrash className="text-danger float-end"
-                  onClick={() => removeAssignment(assign._id)}
+                  onClick ={() => removeAssignment(assign._id)}
                 />
           </ProtectedContent>
 

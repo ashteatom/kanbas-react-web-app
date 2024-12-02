@@ -23,14 +23,15 @@ export default function AssignmentEditor() {
       return {
         title: "New Title", 
         course: "New Course", 
-        start: "New Start with Time",
-        end: "New End with Time",
+        start: "New Start",
+        end: "New End",
         release: "0000-00-00",
         due: "0000-00-00",
         until: "0000-00-00",
         points: "New Points",
-        assignTo: "New Assign To",
+        assignTo: "New Assign",
         assignDes: "New Description",
+
       }
     }
   })
@@ -53,7 +54,14 @@ export default function AssignmentEditor() {
   }
 
   const savePressed = () => {
-    if (assignment.title && assignment.assignDes ) {
+    if (assignment.title && 
+      assignment.course && 
+      assignment.release && 
+      assignment.due &&
+      assignment.until &&
+      assignment.points &&
+      assignment.assignDes
+) {
       if (aid === "New") {
         createAssignmentForCourse();
       }
@@ -64,9 +72,6 @@ export default function AssignmentEditor() {
     }
   }
 
-  if (aid !== "New" && !assignment){
-    return <div> Assignment does not exist</div>
-  }
 
     return (
       
@@ -218,11 +223,6 @@ export default function AssignmentEditor() {
           </a>
 
           </div> 
-
-          
-
-
-
 
         </div>
         </div>
