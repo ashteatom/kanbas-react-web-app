@@ -36,6 +36,13 @@ export default function AssignmentEditor() {
     }
   })
 
+ 
+  const dateConverter = (dateNumericalString: string) : string => {
+    const date = new Date(dateNumericalString)
+    const options : Intl.DateTimeFormatOptions = { month: "long", day: "numeric" }; 
+    return date.toLocaleDateString("en-US", options);
+  }
+
   const createAssignmentForCourse = async () => {
     if (cid) {
       const newAssignment = { ...assignment, course: cid };
@@ -189,7 +196,7 @@ export default function AssignmentEditor() {
                     <label htmlFor="wd-available-from" className = "me-2 mt-2"> <b>Available from</b> </label>
                     <div className ="row">
                       <input type="date" id="wd-available-from" className="form-control" value={assignment.release}
-                       onChange={(e) => adjustAssignment({...assignment, release: e.target.value })}
+                       onChange={(e) => adjustAssignment({...assignment, release: e.target.value, start: dateConverter(e.target.value) + " at 12:00am" })}
                       />
                     </div>
                   </div>
@@ -197,7 +204,7 @@ export default function AssignmentEditor() {
                   <label htmlFor="wd-available-to" className = "me-2 mt-2"> <b>Until</b> </label>
                     <div className ="row">
                     <input type="date" id="wd-available-to" className="form-control" value={assignment.until}
-                    onChange={(e) => adjustAssignment({...assignment, until: e.target.value })}
+                    onChange={(e) => adjustAssignment({...assignment, until: e.target.value, due: e.target.value, end: dateConverter(e.target.value) + " at 11:59pm", })}
                     />
                     </div>
                   </div>
