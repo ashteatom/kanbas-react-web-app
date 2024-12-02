@@ -27,10 +27,21 @@ export default function Assignments() {
     dispatch(deleteAssignment(assignmentId));
   };
 
+
   const fetchAssignments = async () => {
+    try {
+      if (!cid) throw new Error("Course ID is undefined");
+      const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+      dispatch(setAssignments(assignments));
+    } catch (error) {
+      console.error("Failed to fetch assignments:", error);
+    }
+  };
+  
+  /* const fetchAssignments = async () => {
     const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
     dispatch(setAssignments(assignments));
-  };
+  }; */
   
   useEffect(() => {
     fetchAssignments();
